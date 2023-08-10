@@ -10,6 +10,7 @@ import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.ui.graphics.Color
 import com.example.danp_proyecto.R
 
 @Composable
@@ -18,17 +19,22 @@ fun BarraNavegacion(
     items: List<BarraScreem> = listOf(
         BarraScreem.Inicio,
         BarraScreem.Sensor,
+        BarraScreem.Slider,
         BarraScreem.Cuenta
     )
 ){
     val currentRoute = currentRoute(navController = navController)
     BottomNavigation(
-        backgroundColor = colorResource(id = R.color.white)
+        backgroundColor = colorResource(id = R.color.white),
+        contentColor = Color(0xFFfb846f)
     ) {
         items.forEach{
                 screen ->
             BottomNavigationItem(
-                icon = { Icon(imageVector = screen.icon, contentDescription = screen.title) },
+                icon = {
+                    Icon(imageVector = screen.icon,
+                        contentDescription = screen.title)
+                       },
                 label = { Text(screen.title) },
                 selected = currentRoute == screen.route,
                 onClick = {

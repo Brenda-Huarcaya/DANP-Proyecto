@@ -10,18 +10,20 @@ import com.example.danp_proyecto.InicioScreen
 import com.example.danp_proyecto.uis.screen_sensor.SensorScreen
 import com.example.danp_proyecto.ViewModel
 import com.example.danp_proyecto.uis.screen_sensor.SensorDataViewModel
+import com.example.danp_proyecto.uis.screen_sensor.SensorSliderScreen
 
 @Composable
 fun Navegacion(
     viewModel: ViewModel,
     sensorDataViewModel: SensorDataViewModel,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = BarraScreem.Cuenta.route,
+    startDestination: String = BarraScreem.Inicio.route,
 ){
 
     NavHost(
         navController = navController,
-        startDestination = startDestination)
+        startDestination = startDestination
+    )
     {
         composable(route = BarraScreem.Inicio.route){
             InicioScreen(navController, viewModel)
@@ -31,6 +33,9 @@ fun Navegacion(
         }
         composable(route = BarraScreem.Sensor.route){
             SensorScreen(navController, sensorDataViewModel)
+        }
+        composable(route = BarraScreem.Slider.route){
+            SensorSliderScreen(navController, sensorDataViewModel)
         }
     }
 

@@ -12,14 +12,6 @@ class ViewModel @Inject constructor( private val clientMQTT: Client) : ViewModel
     private val _dataList = mutableStateListOf<String>()
     val dataList: List<String> get() = _dataList
 
-    fun subscribeTopicSensor() {
-        if (clientMQTT.isConnected()) {
-            clientMQTT.subscribe("outTopic", 0) { data ->
-                _dataList.add(data)
-            }
-        }
-    }
-
     fun publishMessage(topic: String, message: String) {
         if (clientMQTT.isConnected()) {
             clientMQTT.publish(topic, message)

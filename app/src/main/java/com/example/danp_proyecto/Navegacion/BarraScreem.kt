@@ -2,9 +2,9 @@ package com.example.danp_proyecto.Navegacion
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class BarraScreem(
@@ -24,9 +24,16 @@ sealed class BarraScreem(
         icon = Icons.Default.AccountCircle
     )
 
-    object Sensor: BarraScreem(
+    object Slider: BarraScreem(
         route = "sensor",
-        title = "sensor",
+        title = "Sensor",
+        icon = Icons.Default.Edit
+    )
+
+    object Sensor: BarraScreem(
+        route = "grafico",
+        title = "Grafico",
         icon = Icons.Default.Notifications
     )
+
 }
